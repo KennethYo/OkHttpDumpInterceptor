@@ -226,9 +226,6 @@ public class DumpInterceptor implements Interceptor {
         Utils.log(log);
         DiskLruCache.Editor editor = mDiskLruCache.edit(mSecret.encodeFileName(key + System.currentTimeMillis()));
         if (editor != null) {
-//            Buffer buffer = new Buffer();
-//            buffer.write(mSecret.encodeFileContent(log));
-
             Sink sink = editor.newSink(0);
             BufferedSink buffer = Okio.buffer(sink);
             buffer.writeUtf8(mSecret.encodeFileContent(log));
