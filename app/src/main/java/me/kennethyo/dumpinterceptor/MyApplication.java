@@ -29,7 +29,7 @@ public class MyApplication extends Application {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-        DumpInterceptor dump = new DumpInterceptor(this,0);
+        DumpInterceptor dump = new DumpInterceptor(this,2*1000*1000);
         dump.setLevel(DumpInterceptor.Level.BODY);
 
         OkHttpClient client = new OkHttpClient.Builder()

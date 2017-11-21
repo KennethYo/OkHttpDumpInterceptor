@@ -48,7 +48,7 @@ public class DumpInterceptor implements Interceptor {
     public static final boolean DEBUG = true;
 
     private static final String DIR_NAME = "net-log";
-    private static long MAX_SIZE = 10 * 1024 * 1024;
+    private static long MAX_SIZE = 2 * 1024 * 1024;
     private static final Charset UTF8 = Charset.forName("UTF-8");
 
     private Level mLevel = Level.NONE;
@@ -66,7 +66,7 @@ public class DumpInterceptor implements Interceptor {
         File diskCacheDir = Utils.getDiskCacheDir(context, DIR_NAME);
         int appVersionCode = Utils.getAppVersionCode(context);
         int valueCount = 1;
-        if (maxSize < MAX_SIZE) {
+        if (maxSize <= 0) {
             maxSize = MAX_SIZE;
         }
 
